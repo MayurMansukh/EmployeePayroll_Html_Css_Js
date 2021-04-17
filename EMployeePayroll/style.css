@@ -182,7 +182,7 @@ select{
             }
             }
             
-            @media only screen and (max-width: 600px) {
+         @media only screen and (max-width: 600px) {
             .form{
             margin-top: 10px;
             }
@@ -207,7 +207,7 @@ select{
             }
 
             .submitButton {
-            margin: 0;
+            margin: 10;
             }
 
             .buttonParent {
@@ -215,3 +215,45 @@ select{
             align-items: flex-start;
             }
         }
+          .submit-reset{
+            text-align: center;
+
+          }
+          .Button{
+            border: 1px solid #3498db;
+            background: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-family: "montserrat";
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.8s;
+            position: relative;
+            overflow: hidden;
+          }
+          .submit,.reset{
+            color: #3498db;
+          }
+          
+          .submit:Submit,.reset:Reset{
+            color: #fff;
+          }
+          .Button::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 10%;
+            height: 0%;
+            background: #3498db;
+            z-index: -1;
+            transition: 0.8s;
+          }
+          .submit::before,.reset::before{
+            top: 0;
+            border-radius: 0 0 50% 50%;
+          }
+          
+          .submit:Submit::before,.reset:Reset::before{
+            height: 180%;
+          }
+          
