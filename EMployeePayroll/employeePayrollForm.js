@@ -1,4 +1,18 @@
 window.addEventListener("DOMContentLoaded", (event) => {
+    const name = document.querySelector('#name');
+    const textError = document.querySelector('.text-error');
+    name.addEventListener('input', function() {
+        if (name.value.length == 0) {
+            textError.textContent = "";
+            return;
+        }
+        try {
+            (new EmployeePayrollData()).name = name.value;
+            textError.textContent = "";
+        } catch (e) {
+            textError.textContent = e;
+        }
+    });
 
     const salary = document.querySelector("#salary");
     const output = document.querySelector(".salary-output");
@@ -7,7 +21,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
         output.textContent = salary.value;
     });
 
+
+
+    const date = document.querySelector('#startdate');
+    const dateError = document.querySelector(".date-error");
+    date.addEventListener('input', function() {
+        const startdate = new Date(Date.parse(getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year')));
+        try {
+            (new EmployeePayrollData()).startDate = startdate;
+            dateError.textContent = " ";
+        } catch (e) {
+            dateError.textContent = e;
+        }
+    });
 });
+
+
 
 const save = () => {
     let employeePayrollData;
